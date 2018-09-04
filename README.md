@@ -24,22 +24,12 @@ set TERM "xterm-256color"
 
 ## Plugins Used
 
-* [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
-* [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [github.com/ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 * [github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 * [github.com/rust-lang/rust.vim](https://github.com/rust-lang/rust.vim)
 * [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 * [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
 * [github.com/ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
-* [github.com/Vimjas/vim-python-pep8-indent](https://github.com/Vimjas/vim-python-pep8-indent)
-* [github.com/mhinz/vim-sayonara](https://github.com/mhinz/vim-sayonara)
-* [github.com/ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
-* [github.com/scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
-* [github.com/rust-lang/rust.vim](https://github.com/rust-lang/rust.vim)
-* [github.com/vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
-* [github.com/vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
-* [github.com/ntpeters/vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace)
-* [github.com/tpope/vim-five](https://github.com/tpope/vim-fugitive)
+* [github.com/tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 * [github.com/Vimjas/vim-python-pep8-indent](https://github.com/Vimjas/vim-python-pep8-indent)
 * [github.com/mhinz/vim-sayonara](https://github.com/mhinz/vim-sayonara)
