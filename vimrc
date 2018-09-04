@@ -17,13 +17,13 @@ set showcmd                     " Show me what I'm typing
 set showmode                    " Show current mode.
 
 set noswapfile                  " Don't use swapfile
-set nobackup					          " Don't create annoying backup files
+set nobackup                    " Don't create annoying backup files
 set nowritebackup
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
 set encoding=utf-8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
-set autoread                    " Automatically reread changed files without asking me anything
+"set autoread                    " Automatically reread changed files without asking me anything
 set laststatus=2
 set hidden
 
@@ -40,7 +40,7 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 set ttyfast
 " set ttyscroll=3               " noop on linux ?
-set lazyredraw          	      " Wait to redraw "
+set lazyredraw                  " Wait to redraw
 
 " speed up syntax highlighting
 set nocursorcolumn
@@ -78,6 +78,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+set listchars=tab:➛\ ,trail:·
+set list
+
 set nrformats-=octal
 set shiftround
 
@@ -114,17 +117,6 @@ set display+=lastline
 " CTRL-U in insert mode deletes a lot.	Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" If linux then set ttymouse
-let s:uname = system("echo -n \"$(uname)\"")
-if !v:shell_error && s:uname == "Linux" && !has('nvim')
-  set ttymouse=xterm
-endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -173,13 +165,6 @@ if has('gui_running')
   syntax enable
 endif
 set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" let g:hybrid_use_Xresources = 1
-" let g:rehash256 = 1
-colorscheme solarized
-set guifont=Inconsolata:h15
-set guioptions-=L
 
 " This comes first, because we have mappings that depend on leader
 " With a map leader it's possible to do extra key combinations
@@ -426,63 +411,6 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 vnoremap <leader>gb :Gblame<CR>
 
-" =================== Vim-cfmt ===================
-let g:cfmt_style = '-linux'
-"autocmd BufWritePre *.c,*.h Cfmt
-
-" ================== linuxsty ====================
-"let g:linuxsty_patterns = ['/usr/src/', '/linux']
-
-" ==================== Vim-go ====================
-let g:go_fmt_fail_silently = 0
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_term_enabled = 1
-let g:go_snippet_engine = "neosnippet"
-let g:go_highlight_space_tab_error = 0
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_extra_types = 0
-let g:go_highlight_operators = 0
-let g:go_highlight_build_constraints = 1
-
-
-au FileType go nmap <Leader>s <Plug>(go-def-split)
-au FileType go nmap <Leader>v <Plug>(go-def-vertical)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>l <Plug>(go-metalinter)
-
-au FileType go nmap <leader>r  <Plug>(go-run)
-
-au FileType go nmap <leader>b  <Plug>(go-build)
-au FileType go nmap <leader>t  <Plug>(go-test)
-au FileType go nmap <leader>dt  <Plug>(go-test-compile)
-au FileType go nmap <Leader>d <Plug>(go-doc)
-
-au FileType go nmap <Leader>e <Plug>(go-rename)
-
-" neovim specific
-if has('nvim')
-  au FileType go nmap <leader>rt <Plug>(go-run-tab)
-  au FileType go nmap <Leader>rs <Plug>(go-run-split)
-  au FileType go nmap <Leader>rv <Plug>(go-run-vertical)
-endif
-
-" I like these more!
-augroup go
-  autocmd!
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-augroup END
-
-" ==================== delimitMate ====================
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
-let g:delimitMate_smart_quotes = 1
-let g:delimitMate_expand_inside_quotes = 0
-let g:delimitMate_smart_matchpairs = '^\%(\w\|\$\)'
-
 "==================== NerdTree ====================
 " For toggling
 nmap <C-n> :NERDTreeToggle<CR>
@@ -495,10 +423,6 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.git$', '.DS_Store']
 
 " Close nerdtree and vim on close file
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" ==================== vim-json ====================
-
-let g:vim_json_syntax_conceal = 0
 
 " ==================== Completion =========================
 " use deoplete for Neovim.
@@ -566,13 +490,12 @@ let g:vim_markdown_json_frontmatter = 1
 
 " =================== vim-airline ========================
 
-let g:airline_theme='solarized'
+let g:airline_theme='simple'
 
-" set to use powerline fonts when not in a ssh session
-let g:remoteSession = ($STY == "")
-if !g:remoteSession
-  let g:airline_powerline_fonts=1
-endif
+let g:airline#extensions#tabline#enabled = 1
+
+" set to use powerline fonts
+let g:airline_powerline_fonts=1
 
 " =================== rust.vim ========================
 
